@@ -1,0 +1,36 @@
+:root {
+  --head_clr: #007AFF;
+  --as1_clr: #3B7193;
+  --as2_clr: #2C556E;
+}
+
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+
+  & header {
+    text-align: center;
+    width: 100%;
+    background-color: var(--head_clr);
+    color: white;
+
+    & h1 {
+      font-size: 2em;
+      padding: 3vh;
+      text-transform: uppercase;
+    }
+  }
+
+  & aside {
+    background-color: var(--as1_clr);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 2vh;
+
+    & h2 {
+      font-size: 1.5em;
+      text-transform: uppercase;
+    }
+  }
+}
