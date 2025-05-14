@@ -19,7 +19,7 @@ async function getData() {
 
 getData().then(data => {
   users = data.results;
-  display_cards(data);
+  display_cards(users);
 })
 
 
@@ -27,14 +27,14 @@ getData().then(data => {
 
 function gender_filter(obj, gender) {
   let filtered = [];
-  if (gender == 'm') {
-    obj.results.forEach((user) => {
+  if (gender == "m") {
+    obj.forEach((user) => {
       if (user.gender == "male") {
         filtered.push(user);
       }
     });
   } else {
-    obj.results.forEach((user) => {
+    obj.forEach((user) => {
       if (user.gender == "female") {
         filtered.push(user);
       }
@@ -45,7 +45,7 @@ function gender_filter(obj, gender) {
 
 function amount_sort(obj) {
   let cache = [];
-  for (let i = 0; i < obj.results.length; i++) {
+  for (let i = 0; i < obj.length; i++) {
   }
 }
 
@@ -66,8 +66,30 @@ function abc_sort(obj){
     return abc_sorted;
 }
 
-function filter_sort(filter = "", sort = "") {
-
+let current_filter = "";
+let current_sort = "";
+function filter_sort(filter, sort) {
+  let res = [];
+  // Filtering
+  if (filter == "") {filter = current_filter;}
+  if (filter == "a") {
+    res = users;
+    current_filter = "a";
+  } else if (filter == "m") {
+    res = gender_filter(users, "m");
+    current_filter = "m";
+  } else {
+    res = gender_filter(users, "f");
+    current_filter = "f";
+  }
+  // Sorting
+  if (sort == "") {sort = current_sort;}
+  if (sort == "abc") {
+    res = abc_sort(res);
+  } else if (sort == "amt") {
+    res = amount_sort(res);
+  }
+  display_cards(res);
 }
 
 function create_card(user) {
@@ -75,7 +97,7 @@ function create_card(user) {
   card.classList.add("card");
   const amnt = document.createElement("p");
   amnt.classList.add("amnt");
-  amnt.innerHTML = (Math.floor(Math.random() * 40) * 10).toFixed(2) + " €"; // Max : 400.00€
+  amnt.innerHTML = ((Math.floor(Math.random() * 39) * 10)+10).toFixed(2) + " €"; // Min : 10.00€; Max : 400.00€; Arondi à la dizaine; 2 chiffres après la virgule
   card.appendChild(amnt);
   const img = document.createElement("img");
   img.classList.add("user_img");
@@ -117,8 +139,8 @@ function display_cards(obj) {
   document.querySelectorAll(".card").forEach(elt => {
     main.removeChild(elt);
   });
-  for (let i = 0; i < obj.results.length; i++) {
-    const card = create_card(obj.results[i]);
+  obj.forEach (user => {
+    const card = create_card(user);
     main.appendChild(card);
-  }
+  })
 }

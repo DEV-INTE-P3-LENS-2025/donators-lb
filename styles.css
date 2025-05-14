@@ -1,8 +1,8 @@
 :root {
-  --head_clr: #007AFF;
-  --as1_clr: #3B7193;
-  --as2_clr: #2C556E;
-  --green: #4CAF50;
+  --head_clr: #007aff;
+  --as1_clr: #3b7193;
+  --as2_clr: #2c556e;
+  --green: #4caf50;
 }
 
 body {
@@ -70,7 +70,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin-top: max(15.5vh, 8rem);
-    
+
     & .card {
       display: flex;
       flex-direction: column;
@@ -93,14 +93,15 @@ body {
         max-width: 150px;
         border-radius: 50%;
         align-self: center;
-        margin: 3% 0
+        margin: 3% 0;
       }
 
       & .name {
         margin-bottom: 0.25em;
       }
 
-      & .place, .phone {
+      & .place,
+      .phone {
         display: flex;
         justify-content: left;
         align-items: center;
@@ -125,36 +126,25 @@ body {
   }
 }
 
-
 /*------ Media Queries ------*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 700px) {
   body {
     & main {
       margin-top: max(9vh, 5rem);
       margin-left: min(15%, 175px);
     }
-    
+
     & aside {
       flex-direction: column;
       width: 15%;
       max-width: 175px;
       height: 100%;
-  
+
       & section {
         width: 100%;
         flex-direction: row;
         align-items: center;
-
-
-        & .short {
-          display: none;
-        }
-
-        & .long {
-          display: inline;
-          font-size: min(1.25vw, 1em);
-        }
       }
     }
   }
@@ -164,6 +154,17 @@ body {
   body main .card {
     width: 29%;
     margin: 2%;
+  }
+
+  body aside section {
+    & .short {
+      display: none;
+    }
+
+    & .long {
+      display: inline;
+      font-size: min(1.25vw, 1em);
+    }
   }
 }
 
