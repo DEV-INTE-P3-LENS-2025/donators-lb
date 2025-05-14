@@ -1,6 +1,7 @@
 /*------ Variables ------*/
 
-const main = document.getElementById("main");
+const main = document.querySelector("main");
+let users = [];
 
 
 /*------ Fetch ------*/
@@ -16,18 +17,34 @@ async function getData() {
   return response.json();
 }
 
-
-  // fetch(url).then((data) => {const users = data;})
-
- const users = getData();
-
- console.log(users);
+getData().then(data => {
+  users = data.results;
+  display_cards(data);
+})
 
 
 /*------ Main ------*/
 
+function gender_filter(obj, gender) {
+  let filtered = [];
+  if (gender == 'm') {
+    obj.results.forEach((user) => {
+      if (user.gender == "male") {
+        filtered.push(user);
+      }
+    });
+  } else {
+    obj.results.forEach((user) => {
+      if (user.gender == "female") {
+        filtered.push(user);
+      }
+    });
+  }
+  return filtered;
+}
+
 function amount_sort(obj) {
-  const cache = [];
+  let cache = [];
   for (let i = 0; i < obj.results.length; i++) {
   }
 }
@@ -53,37 +70,51 @@ function filter_sort(filter = "", sort = "") {
 
 }
 
-function create_card(obj) {
+function create_card(user) {
   const card = document.createElement("section");
   card.classList.add("card");
   const amnt = document.createElement("p");
-  amnt.innerHTML = (Math.floor(Math.random() * 100) * 10).toFixed(2) + " €";
+  amnt.classList.add("amnt");
+  amnt.innerHTML = (Math.floor(Math.random() * 40) * 10).toFixed(2) + " €"; // Max : 400.00€
   card.appendChild(amnt);
   const img = document.createElement("img");
-  img.src = obj.picture.thumbnail;
-  img.alt = obj.name.first + " " + obj.name.last;
-  img.title = obj.name.first + " " + obj.name.last;
+  img.classList.add("user_img");
+  img.src = user.picture.large;
+  img.alt = user.name.first + " " + user.name.last;
+  img.title = user.name.first + " " + user.name.last;
   card.appendChild(img);
   const name = document.createElement("p");
-  name.innerHTML = obj.name.first + " " + obj.name.last;
+  name.classList.add("name");
+  name.innerHTML = user.name.first + " " + user.name.last;
   card.appendChild(name);
   const place = document.createElement("section");
+  place.classList.add("place");
+  const pin = document.createElement("img");
+  pin.src = "../images/icons/place.svg";
+  place.appendChild(pin);
   const city = document.createElement("p");
-  city.innerHTML = obj.location.city + ", ";
+  city.innerHTML = user.location.city + ",";
   place.appendChild(city);
   const country = document.createElement("p");
-  country.innerHTML = obj.location.country;
+  country.classList.add("bold");
+  country.innerHTML = user.location.country;
   place.appendChild(country);
   card.appendChild(place);
+  const phone = document.createElement("section");
+  phone.classList.add("phone");
+  const phone_img = document.createElement("img");
+  phone_img.src = "../images/icons/phone.svg";
+  phone.appendChild(phone_img);
   const phone_nbr = document.createElement("p");
-  phone_nbr.innerHTML = obj.phone;
-  card.appendChild(phone_nbr);
-
+  phone_nbr.innerHTML = user.phone;
+  phone.appendChild(phone_nbr);
+  card.appendChild(phone);
+  
   return card;
 }
 
 function display_cards(obj) {
-  document.querySelectorAll(".card").forEach((elt) => {
+  document.querySelectorAll(".card").forEach(elt => {
     main.removeChild(elt);
   });
   for (let i = 0; i < obj.results.length; i++) {

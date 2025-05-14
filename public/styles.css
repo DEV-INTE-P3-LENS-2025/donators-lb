@@ -2,6 +2,7 @@
   --head_clr: #007AFF;
   --as1_clr: #3B7193;
   --as2_clr: #2C556E;
+  --green: #4CAF50;
 }
 
 body {
@@ -9,28 +10,173 @@ body {
   font-family: Arial, sans-serif;
 
   & header {
-    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 1;
     width: 100%;
     background-color: var(--head_clr);
     color: white;
 
     & h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 2em;
-      padding: 3vh;
       text-transform: uppercase;
+      height: 9vh;
+      min-height: 5rem;
     }
   }
 
   & aside {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    margin-top: max(9vh, 5rem);
     background-color: var(--as1_clr);
     display: flex;
-    flex-direction: column;
     color: white;
-    padding: 2vh;
+    width: 100%;
 
-    & h2 {
-      font-size: 1.5em;
-      text-transform: uppercase;
+    & section {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 14.2857%;
+      height: 6.5vh;
+      min-height: 3rem;
+
+      & img {
+        height: 50%;
+      }
+
+      & p {
+        font-size: 0.6em;
+        text-align: center;
+      }
     }
+
+    & .option {
+      background-color: var(--as2_clr);
+      cursor: pointer;
+    }
+
+    & .long {
+      display: none;
+    }
+  }
+
+  & main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: max(15.5vh, 8rem);
+    
+    & .card {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      width: 44%;
+      margin: 3%;
+      padding: 1.5% 1%;
+      text-align: center;
+      box-shadow: rgba(0, 0, 0, 0.5) 2px 4px 5px;
+      border-radius: 7.5%;
+
+      & .amnt {
+        color: var(--green);
+        font-weight: bold;
+      }
+
+      & .user_img {
+        width: 50%;
+        max-height: 150px;
+        max-width: 150px;
+        border-radius: 50%;
+        align-self: center;
+        margin: 3% 0
+      }
+
+      & .name {
+        margin-bottom: 0.25em;
+      }
+
+      & .place, .phone {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 0.15em;
+
+        & img {
+          width: 1.5em;
+          filter: brightness(60%);
+        }
+
+        & p {
+          font-size: 75%;
+          text-align: left;
+          color: #757575;
+        }
+
+        & .bold {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
+/*------ Media Queries ------*/
+
+@media screen and (min-width: 768px) {
+  body {
+    & main {
+      margin-top: max(9vh, 5rem);
+      margin-left: min(15%, 175px);
+    }
+    
+    & aside {
+      flex-direction: column;
+      width: 15%;
+      max-width: 175px;
+      height: 100%;
+  
+      & section {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+
+
+        & .short {
+          display: none;
+        }
+
+        & .long {
+          display: inline;
+          font-size: min(1.25vw, 1em);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  body main .card {
+    width: 29%;
+    margin: 2%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body main .card {
+    width: 22%;
+    margin: 1.5%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  body main .card {
+    width: 18%;
+    margin: 1%;
   }
 }

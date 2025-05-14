@@ -6,39 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="./styles.css" rel="stylesheet" />
     <link href="./reset.css" rel="stylesheet" />
+    <link rel="icon" href="../images/icons/euro.svg" />
   </head>
   <body>
     <header>
-      <h1>List of donators</h1>
+      <h1 id="h1">List of donators</h1>
     </header>
     <aside>
-      <section id="filter">
-        <section id="filter_header">
-          <p>Filters :</p>
-        </section>
-        <section class="filter_option">
-          <p>All</p>
-        </section>
-        <section class="filter_option">
-          <p>Males</p>
-        </section>
-        <section class="filter_option">
-          <p>Females</p>
-        </section>
+      <section class="header">
+        <img src="../images/icons/filter.svg" alt="Filter">
+        <p class="short">Filter</p>
+        <p class="long">Filters :</p>
       </section>
-      <section id="sort">
-        <section id="sort_header">
-          <p>Sort by :</p>
-        </section>
-        <section class="sort_option">
-          <p>Amount</p>
-        </section>
-        <section class="sort_option">
-          <p>ABC</p>
-        </section>
+      <section class="option">
+        <img src="../images/icons/all.svg" alt="All" />
+        <p class="short">All</p>
+        <p class="long">All donators</p>
+      </section>
+      <section class="option">
+        <img src="../images/icons/male.svg" alt="Males" />
+        <p class="short">Males</p>
+        <p class="long">Male donators</p>
+      </section>
+      <section class="option">
+        <img src="../images/icons/female.svg" alt="Females" />
+        <p class="short">Females</p>
+        <p class="long">Female donators</p>
+      </section>
+      <section class="header">
+        <img src="../images/icons/sort.svg" alt="Sort" />
+        <p class="short">Sort</p>
+        <p class="long">Sort by :</p>
+      </section>
+      <section class="option">
+        <img src="../images/icons/euro.svg" alt="Amount" />
+        <p class="short">Amount</p>
+        <p class="long">Amount donated</p>
+      </section>
+      <section class="option">
+        <img src="../images/icons/abc.svg" alt="ABC" />
+        <p class="short">ABC</p>
+        <p class="long">Alphabetical order</p>
       </section>
     </aside>
-    <main id="main"></main>
+    <main></main>
   </body>
   <script src="./script.js"></script>
 </html>
