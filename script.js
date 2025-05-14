@@ -1,7 +1,9 @@
 /*------ Variables ------*/
 
-const main = document.querySelector("main");
+const cont = document.querySelector("#card_container");
 let users = [];
+const input = document.querySelector("input");
+
 
 /*------ Fetch ------*/
 
@@ -158,10 +160,27 @@ function create_card(user) {
 
 function display_cards(tab) {
   document.querySelectorAll(".card").forEach((elt) => {
-    main.removeChild(elt);
+    cont.removeChild(elt);
   });
   tab.forEach((user) => {
     const card = create_card(user);
-    main.appendChild(card);
+    cont.appendChild(card);
   });
 }
+
+function search() { // Search by name or country
+  let [name1,name2] = input.value.split(' ');
+  let tab = [];
+  users.forEach(user => {
+    if (name1 == user.name.first || name1 == user.name.last || name2 == user.name.first || name2 == user.name.last || name1 == user.location.country) {
+      tab.push(user);
+    } else if (name1 == '') {
+      tab = users;
+    }
+  })
+  display_cards(tab);	
+}
+
+input.addEventListener("keypress", function(event){
+    if(event.key == "Enter"){search();}
+});
