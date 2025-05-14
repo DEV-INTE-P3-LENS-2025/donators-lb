@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="./styles.css" rel="stylesheet" />
     <link href="./reset.css" rel="stylesheet" />
-    <link rel="icon" href="./images/icons/euro.svg" />
+    <link rel="icon" href="./images/icons/euro_clr.svg" />
   </head>
   <body>
     <header>
@@ -18,18 +18,18 @@
         <p class="short">Filter</p>
         <p class="long">Filters :</p>
       </section>
-      <section class="option" onclick="filter_sort('a', '')">
-        <img src="./images/icons/all.svg" alt="All" />
+      <section class="option f_op" onclick="filter_sort(this, 'a', '')">
+        <img src="./images/icons/all_clr.svg" alt="All" class="op_icon"/>
         <p class="short">All</p>
         <p class="long">All donators</p>
       </section>
-      <section class="option" onclick="filter_sort('m', '')">
-        <img src="./images/icons/male.svg" alt="Males" />
+      <section class="option f_op" onclick="filter_sort(this, 'm', '')">
+        <img src="./images/icons/male_clr.svg" alt="Males" class="op_icon"/>
         <p class="short">Males</p>
         <p class="long">Male donators</p>
       </section>
-      <section class="option" onclick="filter_sort('f', '')">
-        <img src="./images/icons/female.svg" alt="Females" />
+      <section class="option f_op" onclick="filter_sort(this, 'f', '')">
+        <img src="./images/icons/female_clr.svg" alt="Females" class="op_icon"/>
         <p class="short">Females</p>
         <p class="long">Female donators</p>
       </section>
@@ -38,13 +38,13 @@
         <p class="short">Sort</p>
         <p class="long">Sort by :</p>
       </section>
-      <section class="option" onclick="filter_sort('', 'amt')">
-        <img src="./images/icons/euro.svg" alt="Amount" />
+      <section class="option s_op" onclick="filter_sort(this, '', 'amt')">
+        <img src="./images/icons/euro_clr.svg" alt="Amount" class="op_icon"/>
         <p class="short">Amount</p>
         <p class="long">Amount donated</p>
       </section>
-      <section class="option" onclick="filter_sort('', 'abc')">
-        <img src="./images/icons/abc.svg" alt="ABC" />
+      <section class="option s_op" onclick="filter_sort(this, '', 'abc')">
+        <img src="./images/icons/abc_clr.svg" alt="ABC" class="op_icon"/>
         <p class="short">ABC</p>
         <p class="long">Alphabetical order</p>
       </section>

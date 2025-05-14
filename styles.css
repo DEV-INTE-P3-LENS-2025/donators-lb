@@ -59,6 +59,26 @@ body {
     & .option {
       background-color: var(--as2_clr);
       cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #fff;
+        color: var(--head_clr);
+        transition: all 0.2s;
+
+        & .op_icon {
+          filter: grayscale(0) brightness(1);
+        }
+      }
+
+      & .op_icon {
+        filter: grayscale(1) brightness(2);
+      }
+    }
+
+    & .active {
+      background-color: #fff;
+      color: var(--head_clr);
     }
 
     & .long {
