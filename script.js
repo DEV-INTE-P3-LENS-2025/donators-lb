@@ -90,7 +90,7 @@ function create_card(user) {
   const place = document.createElement("section");
   place.classList.add("place");
   const pin = document.createElement("img");
-  pin.src = "../images/icons/place.svg";
+  pin.src = "./images/icons/place.svg";
   place.appendChild(pin);
   const city = document.createElement("p");
   city.innerHTML = user.location.city + ",";
@@ -103,7 +103,7 @@ function create_card(user) {
   const phone = document.createElement("section");
   phone.classList.add("phone");
   const phone_img = document.createElement("img");
-  phone_img.src = "../images/icons/phone.svg";
+  phone_img.src = "./images/icons/phone.svg";
   phone.appendChild(phone_img);
   const phone_nbr = document.createElement("p");
   phone_nbr.innerHTML = user.phone;
