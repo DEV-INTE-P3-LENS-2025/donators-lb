@@ -277,7 +277,8 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
-  body main #card_container .card {
+  body main #card_container .card,
+  body main #card_container .stat_card {
     width: 22%;
     margin: 1.5%;
   }
